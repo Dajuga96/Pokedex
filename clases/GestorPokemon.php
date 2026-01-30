@@ -1,22 +1,24 @@
 <?php
 
 class GestorPokemon {
-    protected $pokedex;
+    
 
     public function __construct() {
-        $this->pokedex = [];
+        if (!isset($_SESSION['pokedex'])) {
+            $_SESSION['pokedex'] = [];
+        }
     }
 
     public function agregarPokemon ($pokemon) {
-        $this->pokedex [] = $pokemon;
+         $_SESSION['pokedex'][] = $pokemon;
     }
 
     public function listarPokemons() {
-        return $this->pokedex;
+        return $_SESSION['pokedex'];
     }
 
     public function buscarPokemon($id) {
-        foreach ($this->pokedex as $pokemon) {
+        foreach ( $_SESSION['pokedex'] as $pokemon) {
             if ($pokemon->getId() == $id) {
                 return $pokemon;
             }
@@ -24,31 +26,30 @@ class GestorPokemon {
     }
 
     public function actualizarEntrenado ($id, $entrenador, $nombre) {
-        foreach ($this->pokedex as $i => $pokemon) {
+        foreach ($_SESSION['pokedex'] as $i => $pokemon) {
             if ($pokemon->getId () == $id) {
-                $this->pokedex [$i]->setEntrenador ($entrenador);
-                $this->pokedex [$i]->setNombre ($nombre);
+                $_SESSION['pokedex'][$i]->setEntrenador ($entrenador);
+                $_SESSION['pokedex'][$i]->setNombre ($nombre);
             }       
             }
         }
 
 
     public function actualizarSalvaje ($id, $nombre, $region, $tipo) {
-        foreach ($this->pokedex as $i => $pokemon) {
+        foreach ($_SESSION['pokedex'] as $i => $pokemon) {
             if ($pokemon->getId () == $id) {
-                $this->pokedex [$i]->setNombre ($nombre);
-                $this->pokedex [$i]->setRegion ($region);
-                $this->pokedex [$i]->setTipo ($tipo);       
+                $_SESSION['pokedex'][$i]->setNombre ($nombre);
+                $_SESSION['pokedex'][$i]->setRegion ($region);
+                $_SESSION['pokedex'][$i]->setTipo ($tipo);       
             }
         }
     }
 
     public function eliminarPokemon($id) {
-        foreach ($this->pokedex as $i => $pokemon) {
+        foreach ($_SESSION['pokedex'] as $i => $pokemon) {
             if ($pokemon->getId() == $id) {
-                unset($this->pokedex[$i]);
-                $this->pokedex = array_values($this->pokedex);
-                return;
+                unset($_SESSION['pokedex'][$i]);
+                $_SESSION['pokedex'] = array_values($_SESSION['pokedex']);
         }
     }
     }

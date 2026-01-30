@@ -29,6 +29,7 @@ class Salvaje extends Pokemon {
     public function setNombre($nombre) {
         $this->nombre = $nombre;
     }
+
     public function setRegion($region) {
         $this->region = $region;
     }

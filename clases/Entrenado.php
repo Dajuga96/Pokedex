@@ -15,17 +15,15 @@ class Entrenado extends Pokemon {
     public function getEntrenador() {
         return $this->entrenador;
     }
-
-    public function setEntrenador($entrenador) {
-        $this->entrenador = $entrenador;
-    }
-
     public function getNombre() {
         return $this->nombre;
     }
-
+    public function setEntrenador($entrenador) {
+        $this->entrenador = $entrenador;
+    }
     public function setNombre($nombre) {
         $this->nombre = $nombre;
     }
+
 }
 ?>
