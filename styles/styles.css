@@ -1,0 +1,175 @@
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+h1.titulo-pokemon {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 3.5rem;
+    color: #ffcb05;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 
+        4px 4px 0px #2a75bb, 
+        -2px -2px 0px #2a75bb,
+        2px -2px 0px #2a75bb,
+        -2px 2px 0px #2a75bb,
+        4px 4px 10px rgba(0,0,0,0.5);
+    margin-bottom: 10px;
+    text-align: center;
+    -webkit-text-stroke: 2px #3c5aa6;
+}
+
+h2, h3 {
+    color: #3c5aa6;
+    border-bottom: 2px solid #ffcb05;
+    padding-bottom: 5px;
+}
+
+
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 1000px;
+}
+
+form.crear-form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #eee;
+    margin-bottom: 30px;
+}
+
+input[type="text"], input[type="number"], select {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+input[type="submit"] {
+    background-color: #ffcb05;
+    color: #2a75bb;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-transform: uppercase;
+    box-shadow: 0 3px 0 #c7a008;
+}
+
+input[type="submit"]:hover {
+    background-color: #ffe066;
+    transform: translateY(-2px);
+}
+
+input[type="submit"]:active {
+    transform: translateY(2px);
+    box-shadow: none;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+th {
+    background-color: #ef5350;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+    background-color: #f1f8ff;
+}
+
+
+.btn-borrar {
+    color: white;
+    background-color: #dc3545;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    margin-left: 10px;
+}
+
+.form-inline {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.form-inline input[type="text"] {
+    padding: 5px;
+    font-size: 0.9rem;
+}
+
+.form-inline input[type="submit"] {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    background-color: #4CAF50;
+    color: white;
+    box-shadow: 0 3px 0 #2e7d32;
+}
+
+.form-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+}
+
+
+.form-wrapper form {
+    flex: 1;
+    z-index: 2; 
+}
+
+
+.poke-decor {
+    width: 150px; 
+    height: auto;
+    filter: drop-shadow(0 10px 10px rgba(0,0,0,0.3)); 
+    animation: flotar 3s ease-in-out infinite;
+}
+
+
+.poke-decor.poke-right {
+    animation-delay: 1.5s;
+    transform: scaleX(-1); 
+}
+
+
+@keyframes flotar {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); } 
+    100% { transform: translateY(0px); }
+}
