@@ -1,6 +1,5 @@
 <?php
 
-
 class PokedexController {
     private $gestor;
 
@@ -9,7 +8,17 @@ class PokedexController {
     }
 
     public function index() {
-        $pokemons = $this->gestor->listarPokemons();
+        $todos = $this->gestor->listarPokemons();
+
+        $porPagina = 5;
+        $pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
+        $inicio = ($pagina - 1) * $porPagina;
+
+        $totalPokemons = count($todos);
+        $totalPaginas = ceil($totalPokemons / $porPagina);
+
+        $pokemons = array_slice($todos, $inicio, $porPagina);
+
         require 'views/listar.php';
     }
 
@@ -30,7 +39,6 @@ class PokedexController {
             }
 
             $this->gestor->agregarPokemon($pokemon);
-            
             header('Location: index.php');
             exit();
         }
@@ -59,11 +67,9 @@ class PokedexController {
 
     public function eliminar() {
         $id = $_GET['id'] ?? null;
-        
         if ($id) {
             $this->gestor->eliminarPokemon($id);
         }
-        
         header('Location: index.php');
         exit();
     }
